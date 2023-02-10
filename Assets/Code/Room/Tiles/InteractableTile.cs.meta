@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ea96c918acb7e3142ba1a44278defcbc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Sprite: {instanceID: 0}
+  - m_InstancedGameObject: {fileID: 5916368941370714563, guid: 63aed02f645eaec4aaf2945c88aeccc2, type: 3}
+  - walkthroughCollider: {instanceID: 0}
+  - doorCollider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
