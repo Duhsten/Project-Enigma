@@ -26,9 +26,9 @@ public class GameEditor : MonoBehaviour
     {
         var cards = new CardPack()
         {
-            HeroCards = new List<HeroCard>()
+            MinionCards = new List<MinionCard>()
             {
-                new HeroCard()
+                new MinionCard()
                 {
                     Id = GUID.Generate().ToString(),
                     Name = "Test",

@@ -28,8 +28,8 @@ public class CardPackEditorWindow : EditorWindow
             texture = new Texture2D(630, 880);
             texture = (Texture2D)EditorGUILayout.ObjectField(texture, typeof(Texture2D), true);
             cardPackEntries[i].Image = new CardImage(texture);
-            ((HeroCard)cardPackEntries[i]).Attack = EditorGUILayout.IntField("Attack", ((HeroCard)cardPackEntries[i]).Attack);
-            ((HeroCard)cardPackEntries[i]).Defense = EditorGUILayout.IntField("Defense", ((HeroCard)cardPackEntries[i]).Defense);
+            ((MinionCard)cardPackEntries[i]).Attack = EditorGUILayout.IntField("Attack", ((MinionCard)cardPackEntries[i]).Attack);
+            ((MinionCard)cardPackEntries[i]).Defense = EditorGUILayout.IntField("Defense", ((MinionCard)cardPackEntries[i]).Defense);
             EditorGUILayout.EndHorizontal();
           
            
@@ -40,7 +40,7 @@ public class CardPackEditorWindow : EditorWindow
         // Add a new entry button
         if (GUILayout.Button("Add Entry"))
         {
-            cardPackEntries.Add(new HeroCard());
+            cardPackEntries.Add(new MinionCard());
         }
         if (GUILayout.Button("Save"))
         {

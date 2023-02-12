@@ -25,7 +25,7 @@ public class GameRegistry : MonoBehaviour
     public static void LoadCardPacks()
     {
         CardPack cards = new CardPack();
-        cards.HeroCards = new List<HeroCard>();
+        cards.MinionCards = new List<MinionCard>();
         cards.SpellCards = new List<SpellCard>();
         cards.MagicCards = new List<MagicCard>();
         cards.KeyCards = new List<KeyCard>();
@@ -39,9 +39,9 @@ public class GameRegistry : MonoBehaviour
                 BinaryFormatter bin = new BinaryFormatter();
                 temp = (CardPack)bin.Deserialize(stream);
             }
-            foreach (var card in temp.HeroCards)
+            foreach (var card in temp.MinionCards)
             {
-                cards.HeroCards.Add(card);
+                cards.MinionCards.Add(card);
             }
             foreach (var card in temp.SpellCards)
             {

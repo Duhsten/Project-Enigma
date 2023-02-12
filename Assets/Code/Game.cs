@@ -6,6 +6,7 @@ using ProjectEnigma.Util;
 using ProjectEnigma.Cards;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 namespace ProjectEnigma.Rooms
 {
@@ -270,7 +271,40 @@ namespace ProjectEnigma.Cards
         public CardImage Image;
         public CardRarity Rarity;
         public abstract CardType Type { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is CardBase))
+            {
+                return false;
+            }
+
+            var other = (CardBase)obj;
+            return Id == other.Id && Name == other.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
+
+    public abstract class PlayableCard : CardBase
+    {
+
+    }
+
+    public class Deck
+    {
+        public string Name;
+
+    }
+
     [System.Serializable]
     public struct CardImage
     {
@@ -288,17 +322,18 @@ namespace ProjectEnigma.Cards
     }
 
     [System.Serializable]
+    [Obsolete()]
 public class CardPack
     {
-        public List<HeroCard> HeroCards;
+        public List<MinionCard> MinionCards;
         public List<SpellCard> SpellCards;
         public List<KeyCard> KeyCards;
         public List<MagicCard> MagicCards;
     }
     [System.Serializable]
-    public class HeroCard : CardBase
+    public class MinionCard : PlayableCard
     {
-
+        public bool JustPlaced;
         public int Attack;
         public int Defense;
         public List<CardAbility> Abilities;
@@ -306,7 +341,7 @@ public class CardPack
         public override CardType Type { get => CardType.Hero; set => Type = value; }
     }
     [System.Serializable]
-    public class SpellCard : CardBase
+    public class SpellCard : PlayableCard
     {
         public override CardType Type { get => CardType.Spell; set => Type = value; }
         public List<CardAbility> Abilities;

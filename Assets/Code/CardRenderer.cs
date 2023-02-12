@@ -15,9 +15,9 @@ public class CardRenderer : MonoBehaviour
     public GameObject cardBack;
     [Header("Hero Card")]
     [Space(5)]
-    public GameObject heroCard;
-    public TMPro.TMP_Text heroCardAttack;
-    public TMPro.TMP_Text heroCardDefense;
+    public GameObject MinionCard;
+    public TMPro.TMP_Text MinionCardAttack;
+    public TMPro.TMP_Text MinionCardDefense;
     public CardRenderer()
     {
 
@@ -40,7 +40,7 @@ public class CardRenderer : MonoBehaviour
         switch (card.Type)
         {
             case CardType.Hero:
-                RenderHeroCard((HeroCard)card);
+                RenderMinionCard((MinionCard)card);
                 break;
             case CardType.Spell:
                 RenderSpellCard(card);
@@ -55,11 +55,11 @@ public class CardRenderer : MonoBehaviour
         cardBack.SetActive(false);
     }
 
-    private void RenderHeroCard(HeroCard card)
+    private void RenderMinionCard(MinionCard card)
     {
-        heroCard.SetActive(true);
-        heroCardAttack.text = card.Attack.ToString();
-        heroCardDefense.text = card.Defense.ToString();
+        MinionCard.SetActive(true);
+        MinionCardAttack.text = card.Attack.ToString();
+        MinionCardDefense.text = card.Defense.ToString();
     }
     private void RenderSpellCard(CardBase card)
     {
